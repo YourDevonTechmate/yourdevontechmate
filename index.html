@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Devon Tech Mate | Friendly Home Tech Support</title>
+    <meta name="description" content="Friendly, stress-free tech support in East Devon & Exeter. Computers, phones, tablets, Wi-Fi, and patient 1-on-1 tuition in your own home.">
+    <style>
+        :root {
+            --primary-blue: #1a365d;
+            --secondary-teal: #0d9488;
+            --light-bg: #f8fafc;
+            --dark-text: #334155;
+            --white: #ffffff;
+            --accent-green: #16a34a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: var(--dark-text); line-height: 1.6; }
+        body { background-color: var(--light-bg); }
+        h1, h2, h3 { color: var(--primary-blue); margin-bottom: 1rem; }
+        p { margin-bottom: 1.2rem; font-size: 1.1rem; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 4rem 1rem; }
+        .btn { display: inline-block; background-color: var(--secondary-teal); color: var(--white); padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 6px; font-weight: bold; transition: background 0.3s ease; border: none; cursor: pointer; font-size: 1rem; }
+        .btn:hover { background-color: #0f766e; }
+        .btn-alt { background-color: transparent; color: var(--primary-blue); border: 2px solid var(--primary-blue); margin-left: 1rem; }
+        .btn-alt:hover { background-color: var(--primary-blue); color: var(--white); }
+        header { background-color: var(--white); box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1200px; margin: 0 auto; }
+        .logo { font-weight: bold; font-size: 1.4rem; color: var(--primary-blue); text-decoration: none; }
+        .logo span { color: var(--secondary-teal); }
+        nav a { text-decoration: none; color: var(--dark-text); margin-left: 1.5rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: var(--secondary-teal); }
+        .nav-phone { background-color: var(--primary-blue); color: var(--white); padding: 0.5rem 1rem; border-radius: 4px; }
+        .nav-phone:hover { color: var(--white); background-color: #2b4c7e; }
+        .hero { background: linear-gradient(135deg, #e0f2fe 0%, #f0fdfa 100%); padding: 6rem 0; text-align: center; }
+        .hero h1 { font-size: 2.8rem; margin-bottom: 1.5rem; }
+        .hero p { max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.25rem; color: #475569; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .service-card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--secondary-teal); }
+        .service-card h3 { margin-top: 0.5rem; }
+        .pricing { background-color: var(--white); text-align: center; }
+        .price-box { background: var(--light-bg); border: 2px solid #e2e8f0; padding: 3rem 2rem; border-radius: 12px; max-width: 500px; margin: 2rem auto; }
+        .price-amount { font-size: 3rem; font-weight: bold; color: var(--primary-blue); margin: 1rem 0; }
+        .guarantee { margin-top: 1.5rem; font-style: italic; color: #64748b; }
+        .about-content { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-badge { flex: 1; min-width: 300px; background: linear-gradient(135deg, var(--primary-blue) 0%, #2b4c7e 100%); color: var(--white); padding: 3rem; border-radius: 12px; }
+        .about-badge h3 { color: var(--white); }
+        .about-badge ul { list-style: none; margin-top: 1rem; }
+        .about-badge li { margin-bottom: 0.75rem; padding-left: 1.5rem; position: relative; }
+        .about-badge li::before { content: "✓"; position: absolute; left: 0; color: var(--secondary-teal); font-weight: bold; }
+        .testimonials { background-color: #f1f5f9; text-align: center; }
+        blockquote { font-size: 1.3rem; font-style: italic; max-width: 800px; margin: 2rem auto; color: #475569; position: relative; padding: 0 2rem; }
+        cite { display: block; margin-top: 1rem; font-weight: bold; font-style: normal; color: var(--primary-blue); }
+        .contact-layout { display: flex; gap: 4rem; flex-wrap: wrap; margin-top: 2rem; }
+        .contact-info { flex: 1; min-width: 300px; }
+        .contact-form { flex: 1.5; min-width: 300px; background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 0.75rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+        .form-group textarea { resize: vertical; height: 120px; }
+        .form-status { padding: 12px; border-radius: 6px; margin-top: 1rem; display: none; text-align: center; font-weight: 600; }
+        .form-status.success { background: #dcfce7; color: #16a34a; display: block; }
+        .form-status.error { background: #fef2f2; color: #dc2626; display: block; }
+        footer { background-color: var(--primary-blue); color: var(--white); text-align: center; padding: 2rem; margin-top: 4rem; }
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav a { margin: 0 0.75rem; }
+            .hero h1 { font-size: 2rem; }
+            .container { padding: 2.5rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Your Devon <span>Tech Mate</span></a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="nav-phone">📞 07888 805725</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Friendly, Stress-Free Tech Support in East Devon & Exeter</h1>
+            <p>No confusing technical jargon, no hidden fees. Just patient, reliable help for your computer, tablet, phone, and home gadgets right in your living room.</p>
+            <div>
+                <a href="#contact" class="btn">Book a Home Visit</a>
+                <a href="#services" class="btn btn-alt">See How I Can Help</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="container">
+        <h2 style="text-align: center;">How I Can Help You</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">Whether your device is acting up or you just want someone to show you how to use it, I've got you covered.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>💻 Computers & Laptops</h3>
+                <p>Slow computer tune-ups, malware/virus removal, software updates, data backup, and setting up completely new laptops or desktop PCs.</p>
+            </div>
+            <div class="service-card">
+                <h3>📱 Phones & Tablets</h3>
+                <p>Setting up your new Apple iPad, iPhone, or Android device. Configuring your email accounts, transferring photos, and organizing your apps.</p>
+            </div>
+            <div class="service-card">
+                <h3>🌐 Home Wi-Fi & Smart TV</h3>
+                <p>Fixing wireless internet dead zones, setting up internet routers, connecting Smart TVs to BBC iPlayer/Netflix, and linking home gadgets.</p>
+            </div>
+            <div class="service-card">
+                <h3>🎓 Patient 1-on-1 Tuition</h3>
+                <p>Gentle, step-by-step lessons at your own pace. Learn how to video call family, shop safely online, manage passwords, or use your software with confidence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Clear, Simple Pricing</h2>
+            <p>You'll always know exactly what you're paying before work begins.</p>
+            <div class="price-box">
+                <h3>Standard Rate</h3>
+                <div class="price-amount">£45 <span style="font-size: 1.2rem; font-weight: normal; color: #64748b;">/ hour</span></div>
+                <p>For flexible, on-site diagnostics, repairs, setup, and personalized tuition.</p>
+                <hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 1.5rem 0;">
+                <p class="guarantee"><strong>The "No Jargon" Guarantee:</strong> If something is completely broken and not worth your money to fix, I will tell you straight away.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Hi, I'm Wayne — Your Tech Mate</h2>
+                <p>I set up <strong>Your Devon Tech Mate</strong> because I don't believe technology should be a source of daily frustration. With over 15 years of technical support and operations experience, I recognize that what people often need most isn't just a fix — it's clarity, patience, and understanding.</p>
+                <p>I treat your technology issues as my own, skipping the high-street retail queues and complicated corporate dialogue to bring straightforward, friendly advice directly to your home.</p>
+            </div>
+            <div class="about-badge">
+                <h3>Local Service Areas</h3>
+                <p>I happily visit homes and small offices throughout East Devon and Exeter, including:</p>
+                <ul>
+                    <li>West Hill & Ottery St Mary</li>
+                    <li>Exeter City Centre & Suburbs</li>
+                    <li>Honiton</li>
+                    <li>Cranbrook</li>
+                    <li>Sidmouth & Coastal Areas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Local Clients Say</h2>
+            <div style="font-size: 3rem; color: var(--secondary-teal); line-height: 1;">"</div>
+            <blockquote>
+                "Wayne was incredibly patient and fixed my iPad mail issues in no time. He explained what went wrong without making me feel silly. Highly recommended!"
+                <cite>— Mary, Local Resident</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 style="text-align: center;">Get in Touch Today</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem auto;">Ready to sort out your tech headaches? Send a message or give me a call for an initial chat.</p>
+        <div class="contact-layout">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p>Feel free to call directly if you prefer talking to a human being right away!</p>
+                <p style="font-size: 1.4rem; margin-top: 1.5rem;">
+                    <strong>📞 Phone:</strong> <a href="tel:07888805725" style="color: var(--secondary-teal); text-decoration: none; font-weight: bold;">07888 805725</a>
+                </p>
+                <p style="font-size: 1.4rem;">
+                    <strong>✉️ Email:</strong> <a href="mailto:YourDevonTechmate@gmail.com" style="color: var(--secondary-teal); text-decoration: none; font-weight: bold;">YourDevonTechmate@gmail.com</a>
+                </p>
+                <p style="margin-top: 2rem; background: #e0f2fe; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--secondary-teal);">
+                    <strong>📅 Availability:</strong> Monday to Friday, with evening and weekend home visits available by appointment.
+                </p>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm" action="https://formsubmit.co/YourDevonTechmate@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="New enquiry from Your Devon Tech Mate website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="false">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="e.g., John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="e.g., 07123 456789">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">How can I help you?</label>
+                        <textarea id="message" name="message" required placeholder="Tell me a bit about what device is playing up..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    <div class="form-status" id="formStatus"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Your Devon Tech Mate. Serving East Devon & Exeter with pride.</p>
+    </footer>
+
+    <script>
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.className = 'form-status';
+        status.style.display = 'block';
+        status.textContent = 'Sending...';
+        status.style.background = '#fef9c3';
+        status.style.color = '#a16207';
+
+        try {
+            const formData = new FormData(form);
+            const resp = await fetch(form.action, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (resp.ok) {
+                status.className = 'form-status success';
+                status.textContent = '✓ Message sent! I\'ll get back to you soon.';
+                form.reset();
+            } else {
+                throw new Error('Server error');
+            }
+        } catch (err) {
+            status.className = 'form-status error';
+            status.textContent = '⚠️ Sorry, something went wrong. Please call or email me directly instead.';
+        }
+    });
+    </script>
+
+</body>
+</html>
